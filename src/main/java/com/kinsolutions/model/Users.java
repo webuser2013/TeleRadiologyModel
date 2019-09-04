@@ -1,6 +1,9 @@
 package com.kinsolutions.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,6 +50,24 @@ public class Users implements Serializable {
 
 	@Column(name="PrivilegeCd")
 	private int privilegeCd;
+	
+	@Column(name="CreatedDate")
+	private Date createdDate;
+	
+	@Column(name="CreatedTime")
+	private Time createdTime;
+	
+	@Column(name="ModifiedDate")
+	private Date modifiedDate;
+	
+	@Column(name="ModifiedTime")
+	private Time modifiedTime;
+	
+	@Column(name="CreatedIpAddress")
+	private String createdIpAddress;
+	
+	@Column(name="ModifiedIpAddress")
+	private String modifiedIpAddress;
 	
 	public long getUserId() {
 		return userId;
@@ -130,6 +151,54 @@ public class Users implements Serializable {
 
 	public void setPrivilegeCd(int privilegeCd) {
 		this.privilegeCd = privilegeCd;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public Time getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Time createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getModifiedDate() {
+		return modifiedDate;
+	}
+
+	public void setModifiedDate(Date modifiedDate) {
+		this.modifiedDate = modifiedDate;
+	}
+
+	public Time getModifiedTime() {
+		return modifiedTime;
+	}
+
+	public void setModifiedTime(Time modifiedTime) {
+		this.modifiedTime = modifiedTime;
+	}
+
+	public String getCreatedIpAddress() {
+		return createdIpAddress;
+	}
+
+	public void setCreatedIpAddress(String createdIpAddress) {
+		this.createdIpAddress = createdIpAddress;
+	}
+
+	public String getModifiedIpAddress() {
+		return modifiedIpAddress;
+	}
+
+	public void setModifiedIpAddress(String modifiedIpAddress) {
+		this.modifiedIpAddress = modifiedIpAddress;
 	}
 	
 	 
