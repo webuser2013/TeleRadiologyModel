@@ -160,27 +160,27 @@ public class RadCenter implements Serializable {
 		this.deploymentFee = deploymentFee;
 	}
 
-	public int getSiteCount() {
+	public Integer getSiteCount() {
 		return siteCount;
 	}
 
-	public void setSiteCount(int siteCount) {
+	public void setSiteCount(Integer siteCount) {
 		this.siteCount = siteCount;
 	}
 
-	public int getRadiologistCount() {
+	public Integer getRadiologistCount() {
 		return radiologistCount;
 	}
 
-	public void setRadiologistCount(int radiologistCount) {
+	public void setRadiologistCount(Integer radiologistCount) {
 		this.radiologistCount = radiologistCount;
 	}
 
-	public int getModalityCount() {
+	public Integer getModalityCount() {
 		return modalityCount;
 	}
 
-	public void setModalityCount(int modalityCount) {
+	public void setModalityCount(Integer modalityCount) {
 		this.modalityCount = modalityCount;
 	}
 
@@ -200,11 +200,11 @@ public class RadCenter implements Serializable {
 		this.modeOfCharge = modeOfCharge;
 	}
 
-	public int getCtcharge() {
+	public Integer getCtcharge() {
 		return ctcharge;
 	}
 
-	public void setCtcharge(int ctcharge) {
+	public void setCtcharge(Integer ctcharge) {
 		this.ctcharge = ctcharge;
 	}
 
