@@ -2,7 +2,6 @@ package com.kinsolutions.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -23,10 +22,10 @@ public class RadCenter implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="RadCenterId")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RadCenterSeq")
-    @SequenceGenerator(name = "RadCenterSeq", sequenceName = "RadCenterSequence")
-    private long radCenterId;  
+	@Column(name="RadCenterId", unique=true, insertable=false)
+	@SequenceGenerator(name="rcPkId", sequenceName="\"RadCenter_RadCenterId_seq\"")
+	@GeneratedValue(generator="rcPkId", strategy= GenerationType.AUTO)
+    private Integer radCenterId;  
 	
 	@Column(name="RadCenterName")
     private String radCenterName;
@@ -48,22 +47,23 @@ public class RadCenter implements Serializable {
 	private BigDecimal deploymentFee;
 	
 	@Column(name="SiteCount")
-	private int siteCount;
+	private Integer siteCount;
 	
 	@Column(name="RadiologistCount")
-	private int radiologistCount;
+	private Integer radiologistCount;
 	
 	@Column(name="ModalityCount")
-	private int modalityCount;
+	private Integer modalityCount;
 	
-	@Column(name="PurchaseOrderCopy")
-	private byte[] purchaseOrderCopy;
+	/*@Column(name="PurchaseOrderCopy")
+	@Type(type="org.hibernate.type.PrimitiveByteArrayBlobType") 
+  	private byte[] purchaseOrderCopy;*/
 	
 	@Column(name="ModeOfCharge")
-	private char modeOfCharge;
+	private String modeOfCharge;
 	
 	@Column(name="CTCharge")
-	private int ctcharge;
+	private Integer ctcharge;
 	
 	@Column(name="MRICharge")
 	private BigDecimal mriCharge;
@@ -71,44 +71,44 @@ public class RadCenter implements Serializable {
 	@Column(name="XRayCrCharge")
 	private BigDecimal xRayCrCharge;
 	
-	@Column(name="Mammogramcharge")
-	private BigDecimal mammogramcharge;
+	@Column(name="MammogramCharge")
+	private BigDecimal mammogramCharge;
 	
 	@Column(name="ServerRam")
-	private int serverRam;
+	private String serverRam;
 	
-	@Column(name="ServerCoreCount")
-	private int serverCoreCount;
+	@Column(name="ServerCore")
+	private String serverCoreCount;
 	
 	@Column(name="ServerStorage")
-	private int serverStorage;
+	private String serverStorage;
 	
 	@Column(name="ServerMonthlyCharges")
 	private BigDecimal serverMonthlyCharges;
 	
-	@Column(name="CreatedDate")
+	@Column(name="CreatedDateTime")
 	private Date createdDate;
 	
-	@Column(name="CreatedTime")
-	private Time createdTime;
-	
-	@Column(name="ModifiedDate")
+	@Column(name="ModifiedDateTime")
 	private Date modifiedDate;
 	
-	@Column(name="ModifiedTime")
-	private Time modifiedTime;
-	
-	@Column(name="CreatedIpAddress")
+ 	@Column(name="CreatedIpAddress")
 	private String createdIpAddress;
 	
 	@Column(name="ModifiedIpAddress")
 	private String modifiedIpAddress;
+	
+	@Column(name="FileName")
+    private String fileName;
+	
+	@Column(name="FilePath")
+    private String filePath;
 
-	public long getRadCenterId() {
+	public Integer getRadCenterId() {
 		return radCenterId;
 	}
 
-	public void setRadCenterId(long radCenterId) {
+	public void setRadCenterId(Integer radCenterId) {
 		this.radCenterId = radCenterId;
 	}
 
@@ -184,19 +184,19 @@ public class RadCenter implements Serializable {
 		this.modalityCount = modalityCount;
 	}
 
-	public byte[] getPurchaseOrderCopy() {
+	/*public byte[] getPurchaseOrderCopy() {
 		return purchaseOrderCopy;
 	}
 
 	public void setPurchaseOrderCopy(byte[] purchaseOrderCopy) {
 		this.purchaseOrderCopy = purchaseOrderCopy;
-	}
+	}*/
 
-	public char getModeOfCharge() {
+	public String getModeOfCharge() {
 		return modeOfCharge;
 	}
 
-	public void setModeOfCharge(char modeOfCharge) {
+	public void setModeOfCharge(String modeOfCharge) {
 		this.modeOfCharge = modeOfCharge;
 	}
 
@@ -224,35 +224,35 @@ public class RadCenter implements Serializable {
 		this.xRayCrCharge = xRayCrCharge;
 	}
 
-	public BigDecimal getMammogramcharge() {
-		return mammogramcharge;
+	public BigDecimal getMammogramCharge() {
+		return mammogramCharge;
 	}
 
-	public void setMammogramcharge(BigDecimal mammogramcharge) {
-		this.mammogramcharge = mammogramcharge;
+	public void setMammogramCharge(BigDecimal mammogramCharge) {
+		this.mammogramCharge = mammogramCharge;
 	}
 
-	public int getServerRam() {
+	public String getServerRam() {
 		return serverRam;
 	}
 
-	public void setServerRam(int serverRam) {
+	public void setServerRam(String serverRam) {
 		this.serverRam = serverRam;
 	}
 
-	public int getServerCoreCount() {
+	public String getServerCoreCount() {
 		return serverCoreCount;
 	}
 
-	public void setServerCoreCount(int serverCoreCount) {
+	public void setServerCoreCount(String serverCoreCount) {
 		this.serverCoreCount = serverCoreCount;
 	}
 
-	public int getServerStorage() {
+	public String getServerStorage() {
 		return serverStorage;
 	}
 
-	public void setServerStorage(int serverStorage) {
+	public void setServerStorage(String serverStorage) {
 		this.serverStorage = serverStorage;
 	}
 
@@ -272,28 +272,12 @@ public class RadCenter implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public Time getCreatedTime() {
-		return createdTime;
-	}
-
-	public void setCreatedTime(Time createdTime) {
-		this.createdTime = createdTime;
-	}
-
 	public Date getModifiedDate() {
 		return modifiedDate;
 	}
 
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
-	}
-
-	public Time getModifiedTime() {
-		return modifiedTime;
-	}
-
-	public void setModifiedTime(Time modifiedTime) {
-		this.modifiedTime = modifiedTime;
 	}
 
 	public String getCreatedIpAddress() {
@@ -314,6 +298,22 @@ public class RadCenter implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
  	 

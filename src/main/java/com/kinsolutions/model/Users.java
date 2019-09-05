@@ -8,9 +8,12 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +23,9 @@ public class Users implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="UserId")
+	@Column(name="UserId", unique=true, insertable=false)
+	@SequenceGenerator(name="usPkId", sequenceName="\"Users_userId_seq\"")
+	@GeneratedValue(generator="usPkId", strategy= GenerationType.AUTO)
     private long userId;  
 	
 	@Column(name="Name")
@@ -51,17 +56,11 @@ public class Users implements Serializable {
 	@Column(name="PrivilegeCd")
 	private int privilegeCd;
 	
-	@Column(name="CreatedDate")
+	@Column(name="CreatedDateTime")
 	private Date createdDate;
 	
-	@Column(name="CreatedTime")
-	private Time createdTime;
-	
-	@Column(name="ModifiedDate")
+	@Column(name="ModifiedDateTime")
 	private Date modifiedDate;
-	
-	@Column(name="ModifiedTime")
-	private Time modifiedTime;
 	
 	@Column(name="CreatedIpAddress")
 	private String createdIpAddress;
@@ -161,28 +160,12 @@ public class Users implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public Time getCreatedTime() {
-		return createdTime;
-	}
-
-	public void setCreatedTime(Time createdTime) {
-		this.createdTime = createdTime;
-	}
-
 	public Date getModifiedDate() {
 		return modifiedDate;
 	}
 
 	public void setModifiedDate(Date modifiedDate) {
 		this.modifiedDate = modifiedDate;
-	}
-
-	public Time getModifiedTime() {
-		return modifiedTime;
-	}
-
-	public void setModifiedTime(Time modifiedTime) {
-		this.modifiedTime = modifiedTime;
 	}
 
 	public String getCreatedIpAddress() {
