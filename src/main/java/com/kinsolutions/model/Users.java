@@ -24,7 +24,7 @@ public class Users implements Serializable {
 	@Column(name="UserId", unique=true, insertable=false)
 	@SequenceGenerator(name="usPkId", sequenceName="\"Users_userId_seq\"")
 	@GeneratedValue(generator="usPkId", strategy= GenerationType.AUTO)
-    private long userId;  
+    private Integer userId;  
 	
 	@Column(name="Name")
     private String name;
@@ -66,11 +66,11 @@ public class Users implements Serializable {
 	@Column(name="ModifiedIpAddress")
 	private String modifiedIpAddress;
 	
-	public long getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 

@@ -63,7 +63,7 @@ public class RadCenter implements Serializable {
 	private String modeOfCharge;
 	
 	@Column(name="CTCharge")
-	private Integer ctcharge;
+	private BigDecimal ctcharge;
 	
 	@Column(name="MRICharge")
 	private BigDecimal mriCharge;
@@ -200,11 +200,11 @@ public class RadCenter implements Serializable {
 		this.modeOfCharge = modeOfCharge;
 	}
 
-	public Integer getCtcharge() {
+	public BigDecimal getCtcharge() {
 		return ctcharge;
 	}
 
-	public void setCtcharge(Integer ctcharge) {
+	public void setCtcharge(BigDecimal ctcharge) {
 		this.ctcharge = ctcharge;
 	}
 
