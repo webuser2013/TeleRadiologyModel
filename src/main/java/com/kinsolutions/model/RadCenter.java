@@ -55,9 +55,8 @@ public class RadCenter implements Serializable {
 	@Column(name="ModalityCount")
 	private Integer modalityCount;
 	
-	/*@Column(name="PurchaseOrderCopy")
-	@Type(type="org.hibernate.type.PrimitiveByteArrayBlobType") 
-  	private byte[] purchaseOrderCopy;*/
+	@Column(name="PurchaseOrderCopy")
+   	private byte[] purchaseOrderCopy;
 	
 	@Column(name="ModeOfCharge")
 	private String modeOfCharge;
@@ -184,13 +183,13 @@ public class RadCenter implements Serializable {
 		this.modalityCount = modalityCount;
 	}
 
-	/*public byte[] getPurchaseOrderCopy() {
+	public byte[] getPurchaseOrderCopy() {
 		return purchaseOrderCopy;
 	}
 
 	public void setPurchaseOrderCopy(byte[] purchaseOrderCopy) {
 		this.purchaseOrderCopy = purchaseOrderCopy;
-	}*/
+	}
 
 	public String getModeOfCharge() {
 		return modeOfCharge;
