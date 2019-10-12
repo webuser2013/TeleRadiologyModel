@@ -22,12 +22,15 @@ public class Users implements Serializable {
 	
 	@Id
 	@Column(name="UserId", unique=true, insertable=false)
-	@SequenceGenerator(name="usPkId", sequenceName="\"Users_userId_seq\"")
+	@SequenceGenerator(name="usPkId", sequenceName="\"Users_UserId_seq\"")
 	@GeneratedValue(generator="usPkId", strategy= GenerationType.AUTO)
     private Integer userId;  
 	
 	@Column(name="Name")
     private String name;
+	
+	@Column(name="Username")
+    private String username;
 	
 	@Column(name="EmailId")	
 	private String emailId;
@@ -65,6 +68,9 @@ public class Users implements Serializable {
 	
 	@Column(name="ModifiedIpAddress")
 	private String modifiedIpAddress;
+	
+	@Column(name="RadCenterId")
+	private Integer radCenterId;
 	
 	public Integer getUserId() {
 		return userId;
@@ -180,6 +186,22 @@ public class Users implements Serializable {
 
 	public void setModifiedIpAddress(String modifiedIpAddress) {
 		this.modifiedIpAddress = modifiedIpAddress;
+	}
+
+	public Integer getRadCenterId() {
+		return radCenterId;
+	}
+
+	public void setRadCenterId(Integer radCenterId) {
+		this.radCenterId = radCenterId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	 

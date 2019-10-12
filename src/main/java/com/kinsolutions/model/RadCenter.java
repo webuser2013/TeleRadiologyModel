@@ -6,12 +6,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,10 +26,6 @@ public class RadCenter implements Serializable {
 	
 	@Column(name="RadCenterName")
     private String radCenterName;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="UserId")
-	private Users users;
  
 	@Column(name="PrivilegeCd")
 	private int privilegeCd;
@@ -102,6 +95,15 @@ public class RadCenter implements Serializable {
 	
 	@Column(name="FilePath")
     private String filePath;
+	
+	@Column(name="ServiceType")
+	private String serviceType;
+	
+	@Column(name="Address")
+	private String addressData;
+	
+	@Column(name="ModalityCharge")
+	private BigDecimal modalityCharge;
 
 	public Integer getRadCenterId() {
 		return radCenterId;
@@ -117,14 +119,6 @@ public class RadCenter implements Serializable {
 
 	public void setRadCenterName(String radCenterName) {
 		this.radCenterName = radCenterName;
-	}
-
-	public Users getUsers() {
-		return users;
-	}
-
-	public void setUsers(Users users) {
-		this.users = users;
 	}
 
 	public int getPrivilegeCd() {
@@ -313,6 +307,30 @@ public class RadCenter implements Serializable {
 
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+
+	public String getServiceType() {
+		return serviceType;
+	}
+
+	public void setServiceType(String serviceType) {
+		this.serviceType = serviceType;
+	}
+
+	public String getAddressData() {
+		return addressData;
+	}
+
+	public BigDecimal getModalityCharge() {
+		return modalityCharge;
+	}
+
+	public void setAddressData(String addressData) {
+		this.addressData = addressData;
+	}
+
+	public void setModalityCharge(BigDecimal modalityCharge) {
+		this.modalityCharge = modalityCharge;
 	}
 
  	 

@@ -2,10 +2,7 @@ package com.kinsolutions.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,9 +10,7 @@ import javax.persistence.Table;
 public class Roles {
 	
 	@Id
-	@Column(name="RoleId", unique=true, insertable=false)
-	@SequenceGenerator(name="rsPkId", sequenceName="\"Roles_roleId_seq\"")
-	@GeneratedValue(generator="rsPkId", strategy= GenerationType.AUTO)
+	@Column(name="RoleId", unique=true, insertable=false)	
     private long roleId;  
 	
 	@Column(name="RoleName")
