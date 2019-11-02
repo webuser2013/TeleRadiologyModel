@@ -149,7 +149,7 @@ ALTER TABLE public."RoleAccessPermission"
 
 CREATE TABLE public."BusinessParameters"
 (
-    "BusinessParamId" integer NOT NULL,
+    "BusinessParamId" serial NOT NULL,
     "AliasCode" character(50) COLLATE pg_catalog."default" NOT NULL,
     "ParameterName" character(50) COLLATE pg_catalog."default" NOT NULL,
     "ParameterValue" character(150) COLLATE pg_catalog."default" NOT NULL,
@@ -164,7 +164,7 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Roles"
+ALTER TABLE public."BusinessParameters"
     OWNER to postgres;	
 
 
